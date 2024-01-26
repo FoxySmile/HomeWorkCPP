@@ -12,10 +12,11 @@ private:
     static int number;
     int uniqNumber;
 public:
-    Car() {}
-
-	Car(string model, string power, string color, int price) {
+    Car() {
         uniqNumber = number++;
+    }
+
+	Car(string model, string power, string color, int price) : Car() {
 		this->model = model;
 		this->power = power;
 		this->color = color;
@@ -61,7 +62,7 @@ public:
 
     void showAll() {
         for (int i = 0; i < countOfCars; i++) {
-            cout << cars->toString() << endl << endl;
+            cout << cars[i].toString() << endl << endl;
         }
     }
 };
@@ -84,8 +85,3 @@ int main() {
     garage1.addCar(car5);
     garage1.showAll();
 }
-
-/*Дополнить программу с машинами следующими пунктами.
-Реализовать класс гараж. В который можно добавлять машины и убирать их.
-У машины должен быть уникальный идентификатор 
-(номер машины(достаточно генерировать трехзначное число уникальное))*/
