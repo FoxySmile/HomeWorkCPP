@@ -18,6 +18,7 @@ public:
 		uniqId = id++;
 	}
 	Student(Student& st) : Student() {
+		uniqId = st.uniqId;
 		countMarks = st.countMarks;
 		marks = new int[countMarks];
 		for (int i = 0; i < countMarks; i++) {
@@ -121,6 +122,8 @@ public:
 		if (uniqId == "") cout << "Достигнут предел групп";
 	}
 
+
+
 	int getCountStudents() {
 		return countStudents;
 	}
@@ -173,6 +176,7 @@ public:
 		students = buf;
 	}
 
+
 	Student* getStudentByIndex(int index) {
 		return students[index];
 	}
@@ -190,15 +194,16 @@ public:
 
 	void transferStudents(int idStudent, int idOfGroup, int idInGroup) {
 		if (groups[idInGroup]->getCountStudents() != 5) {
-			Student* st = groups[idOfGroup]->getStudentByIndex(idStudent);
+			Student* st(groups[idOfGroup]->getStudentByIndex(idStudent));
+			groups[idInGroup]->addStudent(*st);
 			groups[idOfGroup]->delStudent(idStudent);
-			//groups[idInGroup]->addStudent(st);
 		}
 	}
 
 	void showInfo() {
 		for (int i = 0; i < countGroups; i++) {
 			groups[i]->showInfo();
+			cout << endl;
 		}
 	}
 };
@@ -229,7 +234,7 @@ int main(){
 	School s(groups, countGroups);
 	s.showInfo();
 	s.transferStudents(3, 1, 0);
-	cout << endl;
+	cout << "--------------------" << endl;
 	s.showInfo();
 }
 
