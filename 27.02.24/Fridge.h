@@ -7,6 +7,7 @@ class Fridge
 {
 private:
 	vector<Shelf*> shelfs;
+	Shelf* shelf;
 	int maxProductOnTheShelf;
 	int maxCountShelf;
 	int countShelfs = 0;
