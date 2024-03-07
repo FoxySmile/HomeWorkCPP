@@ -38,12 +38,12 @@ int main() {
 	shelf1.showAllProducts();*/
 
 	Fridge fridge(3, 3);
-	fridge.addProductInShelf(new Fish(nameFish[random(0, 2)]));
-	fridge.addProductInShelf(new Fish(nameFish[random(0, 2)]));
-	fridge.addProductInShelf(new Fish(nameFish[random(0, 2)]));
-	fridge.addProductInShelf(new Fish(nameFish[random(0, 2)]));
-	fridge.addProductInShelf(new Fish(nameFish[random(0, 2)]));
-	fridge.addProductInShelf(new Fish(nameFish[random(0, 2)]));
+	fridge.addProductInShelf(new Fish("1"));
+	fridge.addProductInShelf(new Fish("2"));
+	fridge.addProductInShelf(new Fish("3"));
+	fridge.addProductInShelf(new Fish("4"));
+	fridge.addProductInShelf(new Fish("5"));
+	fridge.addProductInShelf(new Fish("6"));
 	//fridge.getProductByIndexAndShelf(2, 0);
 	fridge.showAllProducts();
 }
