@@ -10,35 +10,45 @@ Fridge::Fridge(int maxCountShelf, int maxProductOnTheShelf)
 void Fridge::addProductInShelf(Product* product)
 {
 	if (countShelfs < maxCountShelf) {
-		for (auto el : shelfs) {
-			if (countProducts == maxProductOnTheShelf) {
-				shelf = nullptr;
-				shelf = new Shelf(maxProductOnTheShelf);
-				countProducts = 0;
-				countShelfs++;
-				continue;
+		if (flag) {
+			shelf->addProduct(product);
+			shelfs.push_back(shelf);
+			countProducts++;
+			flag = false;
+			return;
+		}
+		
+		if (countProducts == maxProductOnTheShelf) {
+			if (countShelfs == maxCountShelf - 1 && countProducts == maxProductOnTheShelf) {
+				return;
 			}
-			el->addProduct(product);
+			shelf = new Shelf(maxProductOnTheShelf);
+			shelf->addProduct(product);
+			shelfs.push_back(shelf);
+			countProducts = 0;
+			countProducts++;
+			countShelfs++;
+			return;
+		}
+		else {
+			shelf->addProduct(product);
 			countProducts++;
 			return;
 		}
-		shelf->addProduct(product);
-		countProducts++;
-		shelfs.push_back(shelf);
 	}
 };
 
-Product* Fridge::getProductByIndexAndShelf(int indexProduct, int indexShelf)
+void Fridge::getProductByIndexAndShelf(int indexProduct, int indexShelf)
 {
-	Product* buf = new Product("Re");
-	return buf;
+	Shelf* buf = *(shelfs.begin() + indexShelf);
+	buf->getProductByIndex(indexShelf)->getInfo();
 }
 
 void Fridge::showAllProducts()
 {
 	int index = 0;
 	for (auto el : shelfs) {
-		cout << "polka" << index++ << endl;
+		cout << "polka " << 1+index++ << endl;
 		el->showAllProducts();
 		cout << "############" << endl;
 	}

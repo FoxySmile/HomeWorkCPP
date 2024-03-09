@@ -12,10 +12,11 @@ private:
 	int maxCountShelf;
 	int countShelfs = 0;
 	int countProducts = 0;
+	bool flag = true;
 public:
 	Fridge(int maxCountShelf, int maxProductOnTheShelf);
 	void addProductInShelf(Product* product);
-	Product* getProductByIndexAndShelf(int indexProduct, int indexShelf);
+	void getProductByIndexAndShelf(int indexProduct, int indexShelf);
 	void showAllProducts();
 };
 

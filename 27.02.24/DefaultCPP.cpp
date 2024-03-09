@@ -37,21 +37,16 @@ int main() {
 	shelf1.addProduct(new Fish("Big Fish"));
 	shelf1.showAllProducts();*/
 
-	Fridge fridge(3, 3);
+	Fridge fridge(3, 5);
 	fridge.addProductInShelf(new Fish("1"));
 	fridge.addProductInShelf(new Fish("2"));
 	fridge.addProductInShelf(new Fish("3"));
 	fridge.addProductInShelf(new Fish("4"));
 	fridge.addProductInShelf(new Fish("5"));
 	fridge.addProductInShelf(new Fish("6"));
-	//fridge.getProductByIndexAndShelf(2, 0);
+	fridge.addProductInShelf(new Fish("7"));
+	cout << "Get Product: ";
+	fridge.getProductByIndexAndShelf(2, 0);
+	cout << endl;
 	fridge.showAllProducts();
 }
-
-/*
-»спользу€ написанный ранее код, реализовать:
-добавление продуктов в холодильник, который состоит из нескольких полок
-–еализовать возможность получение продуктов с
-конкретной полки конкретной позиции.
-”честь что если мето на полке нет, берем следующую полку
-*/
